@@ -1,0 +1,188 @@
+.results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-card {
+  padding: 2.5rem 4rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.reveal-card.boy {
+  background: linear-gradient(135deg, #a8d8ea 0%, #7ec8e3 50%, #5eb0d2 100%);
+}
+
+.reveal-card.girl {
+  background: linear-gradient(135deg, #ffd1dc 0%, #ffb6c1 50%, #ff9fb2 100%);
+}
+
+.reveal-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.reveal-title {
+  font-size: 3rem;
+  color: white;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.reveal-message {
+  font-size: 1.25rem;
+  color: white;
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+}
+
+.reveal-total {
+  font-size: 1rem;
+  color: white;
+  margin: 1rem 0 0;
+  opacity: 0.8;
+}
+
+.votes-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.votes-title {
+  font-size: 1.5rem;
+  color: #5c5470;
+  margin: 0 0 0.25rem;
+  text-align: center;
+}
+
+.votes-total {
+  font-size: 1rem;
+  color: #9a94a8;
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+.vote-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.vote-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vote-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #5c5470;
+  font-weight: 600;
+}
+
+.vote-bar-track {
+  height: 24px;
+  background: #f0f0f5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.vote-bar-fill {
+  height: 100%;
+  border-radius: 12px;
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vote-bar-fill.boy {
+  background: linear-gradient(90deg, #a8d8ea 0%, #7ec8e3 100%);
+}
+
+.vote-bar-fill.girl {
+  background: linear-gradient(90deg, #ffd1dc 0%, #ffb6c1 100%);
+}
+
+.vote-again-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #b8a9c9 0%, #9d8eb8 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(157, 142, 184, 0.4);
+}
+
+.vote-again-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(157, 142, 184, 0.5);
+}
+
+.vote-again-btn:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 500px) {
+  .reveal-card {
+    padding: 2rem;
+  }
+
+  .reveal-title {
+    font-size: 2.25rem;
+  }
+
+  .reveal-emoji {
+    font-size: 3rem;
+  }
+
+  .votes-section {
+    padding: 1.5rem;
+  }
+}

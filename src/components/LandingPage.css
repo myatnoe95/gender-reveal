@@ -1,0 +1,299 @@
+.landing-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  text-align: center;
+  pointer-events: none;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 1;
+  width: 100%;
+  max-width: 800px;
+  pointer-events: auto;
+}
+
+.landing-subtitle {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #7a7490;
+  margin: 0;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.landing-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.boy-text {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #4a90d9;
+  text-shadow: 3px 3px 6px rgba(74, 144, 217, 0.3);
+  letter-spacing: -2px;
+}
+
+.or-text {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #9a94a8;
+  font-style: italic;
+  margin: 0 0.5rem;
+}
+
+.girl-text {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #e75480;
+  text-shadow: 3px 3px 6px rgba(231, 84, 128, 0.3);
+  letter-spacing: -2px;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  min-width: 100px;
+}
+
+.countdown-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #5c5470;
+  line-height: 1;
+}
+
+.countdown-item:nth-child(1) .countdown-number {
+  color: #e75480;
+}
+
+.countdown-item:nth-child(2) .countdown-number {
+  color: #4a90d9;
+}
+
+.countdown-item:nth-child(3) .countdown-number {
+  color: #e75480;
+}
+
+.countdown-item:nth-child(4) .countdown-number {
+  color: #4a90d9;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: #9a94a8;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.landing-actions {
+  margin-top: 1rem;
+  animation: fadeIn 0.8s ease-out 0.6s both;
+  display: flex;
+  justify-content: center;
+}
+
+.vote-btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: 50px;
+  background: white;
+  color: #5c5470;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vote-btn::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-right: 2.5px solid #9a94a8;
+  border-bottom: 2.5px solid #9a94a8;
+  transform: rotate(45deg);
+  margin-left: 4px;
+  margin-bottom: 4px;
+  animation: bounceArrow 1.5s ease-in-out infinite;
+  transition: border-color 0.3s ease;
+}
+
+.vote-btn:hover::after {
+  border-color: #667eea;
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: rotate(45deg) translateY(0);
+  }
+  50% {
+    transform: rotate(45deg) translateY(4px);
+  }
+}
+
+.vote-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.reveal-btn {
+  padding: 1.25rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #a8d8ea 100%);
+  color: #5c5470;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 25px rgba(255, 154, 158, 0.4);
+  animation: pulse 2s infinite;
+}
+
+.reveal-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(255, 154, 158, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 6px 25px rgba(255, 154, 158, 0.4);
+  }
+  50% {
+    box-shadow: 0 6px 35px rgba(255, 154, 158, 0.6);
+  }
+}
+
+@media (max-width: 700px) {
+  .landing-content {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .landing-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .landing-title {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+
+  .boy-text,
+  .girl-text {
+    font-size: 2.5rem;
+  }
+
+  .or-text {
+    font-size: 1.2rem;
+    margin: 0 0.3rem;
+  }
+
+  .countdown-container {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .countdown-item {
+    padding: 0.75rem 1rem;
+    min-width: 65px;
+    border-radius: 12px;
+  }
+
+  .countdown-number {
+    font-size: 1.75rem;
+  }
+
+  .countdown-label {
+    font-size: 0.7rem;
+  }
+
+  .vote-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .landing-subtitle {
+    font-size: 1rem;
+  }
+
+  .boy-text,
+  .girl-text {
+    font-size: 2rem;
+  }
+
+  .or-text {
+    font-size: 1rem;
+  }
+
+  .countdown-container {
+    gap: 0.4rem;
+  }
+
+  .countdown-item {
+    padding: 0.5rem 0.75rem;
+    min-width: 55px;
+  }
+
+  .countdown-number {
+    font-size: 1.5rem;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+  }
+}
