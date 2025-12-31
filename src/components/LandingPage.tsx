@@ -100,7 +100,7 @@ export function LandingPage({ onStartVoting, onViewVotesAndWishes, totalVotes }:
             </button>
           ) : (
             <button className="vote-btn" onClick={onStartVoting}>
-              Cast your vote ({totalVotes})
+              Cast your vote
             </button>
           )}
         </div>
