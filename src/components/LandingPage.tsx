@@ -15,6 +15,7 @@ interface TimeLeft {
 
 interface LandingPageProps {
   onStartVoting: () => void;
+  onViewVotesAndWishes: () => void;
   totalVotes: number;
 }
 
@@ -40,7 +41,7 @@ function padNumber(num: number): string {
   return num.toString().padStart(2, "0");
 }
 
-export function LandingPage({ onStartVoting, totalVotes }: LandingPageProps) {
+export function LandingPage({ onStartVoting, onViewVotesAndWishes, totalVotes }: LandingPageProps) {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
   const [isExpired, setIsExpired] = useState(TARGET_DATE.getTime() <= Date.now());
 
@@ -99,10 +100,14 @@ export function LandingPage({ onStartVoting, totalVotes }: LandingPageProps) {
             </button>
           ) : (
             <button className="vote-btn" onClick={onStartVoting}>
-              View all votes ({totalVotes})
+              Cast your vote ({totalVotes})
             </button>
           )}
         </div>
+
+        <button className="view-all-btn" onClick={onViewVotesAndWishes}>
+          View all votes ({totalVotes})
+        </button>
       </div>
     </div>
   );

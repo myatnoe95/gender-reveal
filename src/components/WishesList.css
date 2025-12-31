@@ -2,6 +2,7 @@
   width: 100%;
   max-width: 800px;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 .wishes-header {
@@ -122,7 +123,8 @@
 
 @media (max-width: 600px) {
   .wishes-list-container {
-    padding: 0 0.25rem;
+    padding: 0.5rem;
+    max-width: 100%;
   }
 
   .wishes-header {

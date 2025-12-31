@@ -7,7 +7,7 @@ import { TeamResults } from "./components/TeamResults";
 import { submitVote, subscribeToVotes, submitWish, subscribeToWishes, type VoteData } from "./firebase";
 import "./App.css";
 
-type AppStep = "landing" | "vote" | "reveal" | "wishform" | "results" | "wishes";
+type AppStep = "landing" | "vote" | "reveal" | "wishform" | "results" | "wishes" | "viewall" | "allwishes";
 
 function App() {
   const [step, setStep] = useState<AppStep>("landing");
@@ -30,6 +30,15 @@ function App() {
       unsubscribeWishes();
     };
   }, []);
+
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const content = document.querySelector('.reveal-content');
+    if (content) {
+      content.scrollTop = 0;
+    }
+  }, [step]);
 
   const handleVote = async (gender: "boy" | "girl", name: string) => {
     setIsLoading(true);
@@ -70,6 +79,22 @@ function App() {
     setStep("vote");
   };
 
+  const handleViewVotesAndWishes = () => {
+    setStep("viewall");
+  };
+
+  const handleViewAllWishes = () => {
+    setStep("allwishes");
+  };
+
+  const handleBackToVotes = () => {
+    setStep("viewall");
+  };
+
+  const handleBackToLanding = () => {
+    setStep("landing");
+  };
+
   if (isLoading) {
     return (
       <div className="app">
@@ -87,6 +112,7 @@ function App() {
       {step === "landing" && (
         <LandingPage
           onStartVoting={handleStartVoting}
+          onViewVotesAndWishes={handleViewVotesAndWishes}
           totalVotes={voteData.boyVotes.length + voteData.girlVotes.length}
         />
       )}
@@ -133,6 +159,30 @@ function App() {
           <button className="back-btn" onClick={handleBackToResults}>
             ← Back to Results
           </button>
+        </div>
+      )}
+
+      {step === "viewall" && (
+        <div className="reveal-content viewall-content">
+          <button className="back-btn back-to-home" onClick={handleBackToLanding}>
+            ← Back to Home
+          </button>
+          <TeamResults
+            boyVotes={voteData.boyVotes}
+            girlVotes={voteData.girlVotes}
+          />
+          <button className="wish-btn" onClick={handleViewAllWishes}>
+            View Wishes ({wishes.length})
+          </button>
+        </div>
+      )}
+
+      {step === "allwishes" && (
+        <div className="reveal-content viewall-content">
+          <button className="back-btn back-to-home" onClick={handleBackToVotes}>
+            ← Back to Votes
+          </button>
+          <WishesList wishes={wishes} />
         </div>
       )}
 

@@ -191,6 +191,25 @@
   box-shadow: 0 8px 30px rgba(255, 154, 158, 0.5);
 }
 
+.view-all-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: inherit;
+  border: none;
+  border-radius: 50px;
+  background: transparent;
+  color: #9a94a8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: -0.5rem;
+}
+
+.view-all-btn:hover {
+  color: #5c5470;
+  background: rgba(255, 255, 255, 0.5);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -297,3 +316,4 @@
     font-size: 0.65rem;
   }
 }
+
